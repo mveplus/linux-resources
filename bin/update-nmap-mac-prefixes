@@ -39,7 +39,7 @@ fi
  
 if ! [ -x "$(type -P combine)" ]; then
   echo "Error: looks like 'combine' is not available"
-  echo "Get it with e.g. 'apt-get install moreutils'"
+  echo "Get it with e.g. 'apt-get install moreutils' or 'yum install moreutils'"
   exit 1
 fi
  
@@ -56,7 +56,8 @@ cp $src . || err_exit
 # get latest OUI file
 echo "$(date +%F\ %T) $(basename $0): INFO: downloading oui.txt"
 echo
-wget http://standards.ieee.org/regauth/oui/oui.txt
+#wget http://standards.ieee.org/regauth/oui/oui.txt
+wget http://standards-oui.ieee.org/oui/oui.txt
  
 if ! [ -f "oui.txt" ]; then
   echo "$(date +%F\ %T) $(basename $0): ERROR: oui.txt is missing"
